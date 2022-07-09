@@ -6,7 +6,7 @@ import (
 )
 
 func killServer(pidFile string) error {
-	// TODO
+	pid := 0
 
 	// Simulate kill
 	fmt.Printf("killing server with pid=%d\n", pid)

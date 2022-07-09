@@ -1,0 +1,40 @@
+2022/07/09 17:42:11 error: open /path/to/config.toml: no such file or directory
+can't open configuration file
+main.readConfig
+	/Users/saad/Sandbox/learning-go/ll-go-essential-training-2446262/Ch05/05_01/errors.go:20
+main.main
+	/Users/saad/Sandbox/learning-go/ll-go-essential-training-2446262/Ch05/05_01/errors.go:40
+runtime.main
+	/usr/local/Cellar/go/1.18.3/libexec/src/runtime/proc.go:250
+runtime.goexit
+	/usr/local/Cellar/go/1.18.3/libexec/src/runtime/asm_amd64.s:1571
+2022/07/09 17:55:25 error: open /path/to/config.toml: no such file or directory
+can't open configuration file
+main.readConfig
+	/Users/saad/Sandbox/learning-go/ll-go-essential-training-2446262/Ch05/05_01/errors.go:20
+main.main
+	/Users/saad/Sandbox/learning-go/ll-go-essential-training-2446262/Ch05/05_01/errors.go:40
+runtime.main
+	/usr/local/Cellar/go/1.18.3/libexec/src/runtime/proc.go:250
+runtime.goexit
+	/usr/local/Cellar/go/1.18.3/libexec/src/runtime/asm_amd64.s:1571
+2022/07/09 17:55:46 error: open /path/to/config.toml: no such file or directory
+can't open configuration file
+main.readConfig
+	/Users/saad/Sandbox/learning-go/ll-go-essential-training-2446262/Ch05/05_01/errors.go:20
+main.main
+	/Users/saad/Sandbox/learning-go/ll-go-essential-training-2446262/Ch05/05_01/errors.go:40
+runtime.main
+	/usr/local/Cellar/go/1.18.3/libexec/src/runtime/proc.go:250
+runtime.goexit
+	/usr/local/Cellar/go/1.18.3/libexec/src/runtime/asm_amd64.s:1571
+2022/07/09 17:56:03 error: open /path/to/config.toml: no such file or directory
+can't open configuration file
+main.readConfig
+	/Users/saad/Sandbox/learning-go/ll-go-essential-training-2446262/Ch05/05_01/errors.go:20
+main.main
+	/Users/saad/Sandbox/learning-go/ll-go-essential-training-2446262/Ch05/05_01/errors.go:40
+runtime.main
+	/usr/local/Cellar/go/1.18.3/libexec/src/runtime/proc.go:250
+runtime.goexit
+	/usr/local/Cellar/go/1.18.3/libexec/src/runtime/asm_amd64.s:1571
