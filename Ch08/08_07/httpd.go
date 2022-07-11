@@ -11,6 +11,9 @@ Limit value size to 1k
 package main
 
 import (
+	"fmt"
+	"io"
+	"log"
 	"net/http"
 )
 
@@ -21,9 +24,49 @@ type Server struct {
 // POST /key Store request body as value
 // GET /<key> Send back value, or 404 if key not found
 func (s *Server) Handler(w http.ResponseWriter, r *http.Request) {
-	// TODO
+	switch r.Method {
+	case http.MethodPost:
+		s.postHandler(w,r)
+		return
+	case http.MethodGet:
+		s.getHandler(w,r)
+		return
+	}
+
+	http.Error(w, "bad method", http.StatusMethodNotAllowed)
+}
+
+func (s *Server) getHandler(w http.ResponseWriter, r *http.Request) {
+	key:= r.URL.Path[1:]
+	data:= s.db.Get(key)
+	if (data) == nil {
+		http.Error(w, "not found", http.StatusNotFound)
+		return
+	}
+	w.Write(data)
+}
+
+func (s *Server) postHandler(w http.ResponseWriter, r *http.Request) {
+	key:= r.URL.Path[1:]
+	defer r.Body.Close()
+	rdr := io.LimitReader(r.Body, 1 << 10)
+	data, err := io.ReadAll(rdr)
+	if err != nil {
+		http.Error(w, "can't read", http.StatusBadRequest)
+		return
+	}
+	s.db.Set(key, data)
+	fmt.Fprintf(w, "%s set\n", key)
 }
 
 func main() {
-	// TODO: Routing & start server
+	var s Server
+	// Routing & start server
+	http.HandleFunc("/", s.Handler)
+
+	addr := ":8080"
+	log.Printf("server ready on %s", addr)
+	if err := http.ListenAndServe(addr, nil); err != nil {
+		log.Fatal(err)
+	}
 }
